@@ -25,6 +25,12 @@ app.use('/api/auth', require('./routes/auth') );
 // TODO: CRUD: Events
 app.use('/api/events', require('./routes/events') );
 
+// connect to reactapplication
+app.get('*', (req, res) => {
+    res.sendFile( __dirname + '/public/index.html');
+})
+
+
 // Listen port
 app.listen( PORT, () => {
     console.log(`Server listening on port ${ PORT }`);
